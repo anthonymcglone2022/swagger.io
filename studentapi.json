@@ -39,23 +39,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "properties": {
-                      "StudentID": {
-                        "type": "integer",
-                        "example": 3
-                      },
-                      "StudentName": {
-                        "type": "string",
-                        "example": "Anthony"
-                      },
-                      "StudentRemarks": {
-                        "type": "string",
-                        "example": "Tech Writing Student"
-                      }
-                    }
-                  }
+                  "$ref": "#/components/schemas/student"
                 }
               }
             }
@@ -68,21 +52,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "StudentID": {
-                    "type": "integer",
-                    "example": 4
-                  },
-                  "StudentName": {
-                    "type": "string",
-                    "example": "Jim"
-                  },
-                  "StudentRemarks": {
-                    "type": "string",
-                    "example": "Tech Writing Student"
-                  }
-                }
+                "$ref": "#/components/schemas/student"
               }
             }
           }
@@ -113,25 +83,49 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "properties": {
-                      "StudentID": {
-                        "type": "integer",
-                        "example": 3
-                      },
-                      "StudentName": {
-                        "type": "string",
-                        "example": "Anthony"
-                      },
-                      "StudentRemarks": {
-                        "type": "string",
-                        "example": "Tech Writing Student"
-                      }
-                    }
-                  }
+                  "$ref": "#/components/schemas/students"
                 }
               }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "student": {
+        "type": "object",
+        "properties": {
+          "StudentID": {
+            "type": "integer",
+            "example": 3
+          },
+          "StudentName": {
+            "type": "string",
+            "example": "Anthony"
+          },
+          "StudentRemarks": {
+            "type": "string",
+            "example": "Tech Writing Student"
+          }
+        }
+      },
+      "students": {
+        "type": "array",
+        "items": {
+          "properties": {
+            "StudentID": {
+              "type": "integer",
+              "example": 3
+            },
+            "StudentName": {
+              "type": "string",
+              "example": "Anthony"
+            },
+            "StudentRemarks": {
+              "type": "string",
+              "example": "Tech Writing Student"
             }
           }
         }
