@@ -1,0 +1,86 @@
+openapi: 3.0.0
+info:
+  title: Student API
+  description: Student Demo API by anthonymcglone2022
+  contact:
+    name: Anthony McGlone
+    url: https://github.com/anthonymcglone2022
+  version: 1.0.0
+servers:
+  - url: https://add_a_production.api.com
+  - url: https://add_a_dev.api.com
+paths:
+  /student:
+    description: Student Resource
+    get:
+      description: Operation to fetch Student
+      parameters:
+        - in: query
+          name: studentname
+          required: true
+          schema:
+            type: string
+            example: Anthony
+      responses:
+        200:
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/student'
+    post:
+      description: Add a new Student
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/student'     
+      responses:
+        201:
+          description: Record successfully added
+  /student/{id}:
+    description: Get Student based on path parameters
+    get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Success reponse with path param
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/students'              
+components:
+  schemas:
+    student:
+      type: object
+      properties:
+        StudentID:
+          type: integer
+          example: 3
+        StudentName:
+          type: string
+          example: Anthony
+        StudentRemarks:
+          type: string
+          example: Tech Writing Student
+    students:
+      type: array
+      items:      
+        properties:
+          StudentID:
+            type: integer
+            example: 3
+          StudentName:
+            type: string
+            example: Anthony
+          StudentRemarks:
+            type: string
+            example: Tech Writing Student         
+      
+      
+                      
